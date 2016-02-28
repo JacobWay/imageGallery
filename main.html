@@ -1,8 +1,27 @@
+<head>
+  <script>
+    function showPic(whichPic){
+      if(document.getElementById){
+        document.getElementById("placeHolder").src = whichPic.href;
+
+        // changeing description
+        if(whichPic.title){
+          document.getElementById("desc").childNodes[0].nodeValue = whichPic.title;
+        }else{
+          document.getElementById("desc").childNodes[0].nodeValue = whichPic.childNodes[0].nodeValue;
+        }
+        return false;
+      }else{
+        return true;
+      }
+    }
+  </script>
+</head>
 <ul>
-  <li><a href="http://placehold.it/350x150" title="a bunch of bananas on a table">some bananas</a></li>
-  <li><a href="http://placehold.it/350x150" title="a bunch of bananas on a table">some bananas</a></li>
-  <li><a href="http://placehold.it/350x150" title="a bunch of bananas on a table">some bananas</a></li>
+  <li><a onclick="return showPic(this)" href="http://placehold.it/350x150" title="a bunch of bananas on a table">some bananas</a></li>
+  <li><a onclick="return showPic(this)" href="http://placehold.it/350x150" title="a bunch of bananas on a table 2">some bananas</a></li>
+  <li><a onclick="return showPic(this)" href="http://placehold.it/350x150" title="a bunch of bananas on a table 3">some bananas</a></li>
 </ul>
 
 <p id="desc">Choose an image to begin</p>
-<img id="placeholder" src="images/blank.gif" alt="" />
+<img id="placeHolder" src="images/blank.gif" alt="blank gif" />
