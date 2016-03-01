@@ -1,4 +1,14 @@
 <head>
+</head>
+<ul>
+  <li><a href="http://placehold.it/350x150" title="a bunch of bananas on a table">some bananas</a></li>
+  <li><a href="http://placehold.it/350x150" title="a bunch of bananas on a table 2">some bananas</a></li>
+  <li><a href="http://placehold.it/350x150" title="a bunch of bananas on a table 3">some bananas</a></li>
+</ul>
+
+<p id="desc">Choose an image to begin</p>
+<img id="placeHolder" src="images/blank.gif" alt="blank gif" />
+
   <script>
     function showPic(whichPic){
       if(document.getElementById){
@@ -15,13 +25,22 @@
         return true;
       }
     }
-  </script>
-</head>
-<ul>
-  <li><a onclick="return showPic(this)" href="http://placehold.it/350x150" title="a bunch of bananas on a table">some bananas</a></li>
-  <li><a onclick="return showPic(this)" href="http://placehold.it/350x150" title="a bunch of bananas on a table 2">some bananas</a></li>
-  <li><a onclick="return showPic(this)" href="http://placehold.it/350x150" title="a bunch of bananas on a table 3">some bananas</a></li>
-</ul>
 
-<p id="desc">Choose an image to begin</p>
-<img id="placeHolder" src="images/blank.gif" alt="blank gif" />
+    function lnkEvent(){
+      // add click handler
+      var lnks = document.getElementsByTagName('a');
+
+      for(var i=0; i<lnks.length; i++){
+        lnks[i].addEventListener('click', function(e){
+          e.preventDefault();
+          showPic(e.target);
+        });
+      }
+    }
+
+    function init(){
+      lnkEvent();
+    }
+    
+    init();
+  </script>
